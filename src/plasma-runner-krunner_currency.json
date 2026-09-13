@@ -10,7 +10,6 @@
         "Description": "Currency converter",
         "EnabledByDefault": true,
         "Icon": "view-currency-list",
-        "Id": "krunner_currency",
         "License": "GPLv3",
         "Name": "Currency",
         "ServiceTypes": [

@@ -12,27 +12,18 @@ where `<currency>` is a valid [currency code](https://www.iban.com/currency-code
 
 ## Dependencies
 
-Ubuntu/Debian:
-
-```bash
-sudo apt install cmake extra-cmake-modules build-essential libkf5runner-dev gettext`
-```
+Requires Qt6/KF6 (Plasma 6).
 
 Arch/Manjaro:
 
 ```bash
-sudo pacman -S cmake extra-cmake-modules
+sudo pacman -S cmake extra-cmake-modules krunner
 ```
 
-Fedora:
-```bash
-sudo dnf install cmake extra-cmake-modules kf5-ki18n-devel kf5-krunner-devel gettext
-```
-
-OpenSUSE:
+Ubuntu/Debian:
 
 ```bash
-sudo zypper install cmake extra-cmake-modules libQt5Core5 libqt5-qtlocation-devel ki18n-devel krunner-devel gettext-tools
+sudo apt install cmake extra-cmake-modules build-essential qt6-base-dev libkf6runner-dev libkf6i18n-dev gettext
 ```
 
 ## Installation

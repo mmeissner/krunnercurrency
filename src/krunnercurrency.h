@@ -2,16 +2,16 @@
 
 #include <KRunner/AbstractRunner>
 
-class CurrencyRunner : public Plasma::AbstractRunner
+class CurrencyRunner : public KRunner::AbstractRunner
 {
     Q_OBJECT
 
 public:
-    CurrencyRunner(QObject *parent, const KPluginMetaData &data, const QVariantList &args);
+    CurrencyRunner(QObject *parent, const KPluginMetaData &data);
     ~CurrencyRunner() override;
 
 public:
-    void match(Plasma::RunnerContext &context) override;
+    void match(KRunner::RunnerContext &context) override;
 
 private:
     QRegularExpression re;

@@ -1,0 +1,8 @@
+# KDE repository metadata (parsed by ECM's KDEMetaInfoPlatformCheck)
+description: Currency converter plugin for KRunner
+platforms:
+    - name: Linux
+    - name: FreeBSD
+portingAid: false
+deprecated: false
+release: false

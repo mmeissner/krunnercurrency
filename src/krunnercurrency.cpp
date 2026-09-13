@@ -3,13 +3,15 @@
 #include "fawazahmed0.h"
 
 #include <KLocalizedString>
+#include <KPluginFactory>
+#include <QEventLoop>
 #include <QFile>
 #include <QJsonDocument>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 
-CurrencyRunner::CurrencyRunner(QObject *parent, const KPluginMetaData &data, const QVariantList &args)
-    : Plasma::AbstractRunner(parent, data, args)
+CurrencyRunner::CurrencyRunner(QObject *parent, const KPluginMetaData &data)
+    : KRunner::AbstractRunner(parent, data)
 {
     re = QRegularExpression(QStringLiteral("(?:exchange )?(\\d+)\\ ?(\\w{3,6})\\ to\\ (\\w{3,6})"));
 
@@ -17,15 +19,13 @@ CurrencyRunner::CurrencyRunner(QObject *parent, const KPluginMetaData &data, con
     QStringList syntaxes = {QStringLiteral("exchange <%1> <%2> to <%3>").arg(i18n("amount")).arg(i18n("cur1")).arg(i18n("cur2")),
                             QStringLiteral("<%1> <%2> to <%3>").arg(i18n("amount")).arg(i18n("cur1")).arg(i18n("cur2"))};
     addSyntax(syntaxes, i18n("Input number and 3-letter currency codes"));
-
-    setPriority(LowPriority);
 }
 
 CurrencyRunner::~CurrencyRunner()
 {
 }
 
-void CurrencyRunner::match(Plasma::RunnerContext &context)
+void CurrencyRunner::match(KRunner::RunnerContext &context)
 {
     // Parse query
     QString query = context.query();
